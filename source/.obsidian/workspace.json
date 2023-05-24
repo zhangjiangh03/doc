@@ -1,0 +1,179 @@
+{
+  "main": {
+    "id": "41ed879124e0dffa",
+    "type": "split",
+    "children": [
+      {
+        "id": "33e15b7c6692cdd7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d32433c84bc4b3c0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "_posts/Python/001-Python语言特点.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "ed4fc0d3845df34e",
+    "type": "split",
+    "children": [
+      {
+        "id": "1e3c801b78231dd6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a9ae2388e1af174f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "e0cb6aa284d116bc",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "48c3fa47968a4d24",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "afa257e8c8c803cc",
+    "type": "split",
+    "children": [
+      {
+        "id": "12090cf185c9f0d7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7896526457510f7f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "_posts/Python/001-Python语言特点.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "9be97c8a4e476c34",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "_posts/Python/001-Python语言特点.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "3a3adb7f96f98192",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "ac96952652fae138",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "_posts/Python/001-Python语言特点.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "d32433c84bc4b3c0",
+  "lastOpenFiles": [
+    "_posts/C语言/038-变量作用域和生命周期.md",
+    "_posts/Python/001-Python语言特点.md",
+    "_posts/Python",
+    "_posts/C语言/037-函数指针和回调函数.md",
+    "_posts/C语言/036-指针高级应用.md",
+    "_posts/C语言/035-位运算.md",
+    "_posts/C语言/034-条件编译.md",
+    "_posts/C语言/033-文件包含.md",
+    "_posts/C语言/032-宏定义.md",
+    "_posts/C语言/031-预编译指令.md",
+    "_posts/C语言/030-内存泄漏和野指针.md",
+    "_posts/C语言/029-动态内存分配函数.md",
+    "_posts/C语言/028-内存管理的基本原则.md",
+    "_posts/C语言/027-错误处理.md",
+    "_posts/C语言/026-文件指针的定位.md",
+    "_posts/C语言/025-读写文件.md",
+    "_posts/C语言/024-文件的打开和关闭.md",
+    "_posts/C语言/023-共用体的定义和使用.md",
+    "_posts/C语言/022-结构体和指针.md",
+    "_posts/C语言/021-结构体变量的引用.md",
+    "_posts/C语言/020-结构体、枚举类型定义和初始化.md",
+    "_posts/C语言/019-指针和函数.md",
+    "_posts/C语言/018-指针与数组.md",
+    "_posts/C语言/017-指针运算.md",
+    "_posts/C语言/016-指针的定义和初始化.md",
+    "_posts/C语言/015-字符数组和字符串.md",
+    "_posts/C语言/014-多维数组.md"
+  ]
+}
