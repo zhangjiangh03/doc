@@ -10,11 +10,11 @@ author_description: 'Hi 我是zhangjiangh03'
 # Navbar config
 #------------------------
 menus:
-  home: https://zhangjiangh03.github.io
+  # home: /
   archive: /archives
   tags: /tags
   categories: /categories
-  # about: /about
+  主站: https://zhangjiangh03.github.io
   # friends: /links
   # artitalk: /shuoshuo # You can uncomment to add this route
 
