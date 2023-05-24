@@ -10,7 +10,7 @@ author_description: 'Hi 我是zhangjiangh03'
 # Navbar config
 #------------------------
 menus:
-  home: /
+  home: https://zhangjiangh03.github.io
   archive: /archives
   tags: /tags
   categories: /categories
