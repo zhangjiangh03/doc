@@ -11,10 +11,11 @@ author_description: 'Hi 我是zhangjiangh03'
 #------------------------
 menus:
   # home: /
+  主站: https://zhangjiangh03.github.io
   archive: /archives
   tags: /tags
   categories: /categories
-  主站: https://zhangjiangh03.github.io
+ 
   # friends: /links
   # artitalk: /shuoshuo # You can uncomment to add this route
 
