@@ -1,4 +1,5 @@
 {
   "showUnsupportedFiles": true,
-  "showFrontmatter": true
+  "showFrontmatter": true,
+  "alwaysUpdateLinks": true
 }
