@@ -1,5 +1,5 @@
 ---
-title: Python笔记目录
+title: 【目录】Python
 date: 2023-05-27 00:00:00
 categories:
 - Python

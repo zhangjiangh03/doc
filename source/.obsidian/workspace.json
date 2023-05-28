@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/C/【目录】C语言.md",
+                "file": "_posts/Python/【目录】Python.md",
                 "mode": "source",
                 "source": false
               }
@@ -122,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/C/【目录】C语言.md",
+                "file": "_posts/Python/【目录】Python.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_posts/C/【目录】C语言.md",
+                "file": "_posts/Python/【目录】Python.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -162,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/C/【目录】C语言.md"
+                "file": "_posts/Python/【目录】Python.md"
               }
             }
           }
@@ -185,12 +185,12 @@
   },
   "active": "b94a3277db9e0aeb",
   "lastOpenFiles": [
-    "_posts/C/【C】数据类型、变量和常量.md",
-    "_posts/C/【目录】C语言.md",
     "_posts/Python/【Python】简介和历史.md",
     "_posts/Python/【目录】Python.md",
-    "Template/newC.md",
+    "_posts/C/【目录】C语言.md",
+    "_posts/C/【C】数据类型、变量和常量.md",
     "C语言笔记目录.md",
+    "Template/newC.md",
     "C语言old/C语言笔记目录.md",
     "Template/New MD Files Template.md",
     "Python笔记目录.md",
