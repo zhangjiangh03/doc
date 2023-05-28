@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/Python/【Python】简介和历史.md",
+                "file": "_posts/C/【目录】C语言.md",
                 "mode": "source",
                 "source": false
               }
@@ -122,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/Python/【Python】简介和历史.md",
+                "file": "_posts/C/【目录】C语言.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_posts/Python/【Python】简介和历史.md",
+                "file": "_posts/C/【目录】C语言.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -162,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/Python/【Python】简介和历史.md"
+                "file": "_posts/C/【目录】C语言.md"
               }
             }
           }
@@ -185,20 +185,20 @@
   },
   "active": "b94a3277db9e0aeb",
   "lastOpenFiles": [
-    "_posts/C语言/【目录】C语言笔记.md",
+    "_posts/C/【C】数据类型、变量和常量.md",
+    "_posts/C/【目录】C语言.md",
     "_posts/Python/【Python】简介和历史.md",
+    "_posts/Python/【目录】Python.md",
+    "Template/newC.md",
     "C语言笔记目录.md",
     "C语言old/C语言笔记目录.md",
-    "_posts/C语言/【C语言】数据类型、变量和常量.md",
-    "_posts/Python/【目录】Python笔记.md",
-    "Template/new.md",
     "Template/New MD Files Template.md",
     "Python笔记目录.md",
     "C语言old/变量和常量.md",
     "C语言old/数据类型.md",
     "数据类型、变量和常量.md",
     "C语言old/结构体、枚举类型定义和初始化.md",
-    "_posts/C语言",
+    "_posts/C",
     "_posts/Python/安装Python.md",
     "C语言old/C语言的历史.md",
     "2022/09/25/C语言/内存泄露和野指针.md",
