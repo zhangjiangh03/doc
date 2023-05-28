@@ -49,14 +49,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/Python/Python笔记目录.md",
+                "file": "_posts/C语言/C语言笔记目录.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -183,10 +183,11 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "b94a3277db9e0aeb",
+  "active": "4ad1c71acfaa45ad",
   "lastOpenFiles": [
     "_posts/Python/Python笔记目录.md",
     "_posts/C语言/C语言笔记目录.md",
+    "_posts/Python/Python语言特点.md",
     "_posts/C语言/数据类型、变量和常量.md",
     "C语言old/变量和常量.md",
     "C语言old/数据类型.md",
@@ -194,7 +195,6 @@
     "C语言old/结构体、枚举类型定义和初始化.md",
     "C语言old/C语言笔记目录.md",
     "_posts/C语言",
-    "_posts/Python/Python语言特点.md",
     "_posts/Python/安装Python.md",
     "C语言old/C语言的历史.md",
     "2022/09/25/C语言/内存泄露和野指针.md",
