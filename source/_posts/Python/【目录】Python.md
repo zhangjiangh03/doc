@@ -8,12 +8,6 @@ tags:
 sticky: true
 ---
 
-## Python语言介绍
-
-- [【Python】简介和历史](【Python】简介和历史.md)
-- 特性和优点
-- 应用领域
-
 ## Python环境搭建
 
 - 安装Python解释器
