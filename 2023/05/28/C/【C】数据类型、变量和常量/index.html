@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta charset="UTF-8">
+  <meta 
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta 
+    http-equiv="X-UA-Compatible" 
+    content="ie=edge">
+  <meta 
+    name="theme-color" 
+    content="#fff" 
+    id="theme-color">
+  <meta 
+    name="description" 
+    content="江阿博客">
+  <link 
+    rel="icon" 
+    href="https://q1.qlogo.cn/g?b=qq&amp;nk=3317229064&amp;s=5">
+  <title>【C】数据类型、变量和常量</title>
+  
+    
+      <meta 
+        property="og:title" 
+        content="【C】数据类型、变量和常量">
+    
+    
+      <meta 
+        property="og:url" 
+        content="https://zhangjiangh03.github.io/doc/2023/05/28/C/%E3%80%90C%E3%80%91%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E3%80%81%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F/index.html">
+    
+    
+      <meta 
+        property="og:img" 
+        content="https://q1.qlogo.cn/g?b=qq&amp;nk=3317229064&amp;s=5">
+    
+    
+    
+      <meta 
+        property="og:type" 
+        content="article">
+      <meta 
+        property="og:article:published_time" 
+        content="2023-05-28">
+      <meta 
+        property="og:article:modified_time" 
+        content="2023-06-18">
+      <meta 
+        property="og:article:author" 
+        content="zhangjiangh03">
+      
+        
+          <meta 
+            property="og:article:tag" 
+            content="C">
+        
+      
+    
+  
+  
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
+  <link rel="preload" href="/doc/css/main.css" as="style" >
+  
+  <link rel="modulepreload" href="//instant.page/5.1.0">
+  
+  <link rel="stylesheet" href="/doc/css/main.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
+  
+  
+  
+    <link rel="stylesheet" href="/doc/js/lib/lightbox/baguetteBox.min.css">
+  
+  <script>
+    function loadScript(url, cb) {
+      var script = document.createElement('script');
+      script.src = url;
+      if (cb) script.onload = cb;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+    function loadCSS(href, data, attr) {
+      var sheet = document.createElement('link');
+      sheet.ref = 'stylesheet';
+      sheet.href = href;
+      sheet.dataset[data] = attr;
+      document.head.appendChild(sheet);
+    }
+    function changeCSS(cssFile, data, attr) {
+      var oldlink = document.querySelector(data);
+      var newlink = document.createElement("link");
+      newlink.setAttribute("rel", "stylesheet");
+      newlink.setAttribute("href", cssFile);
+      newlink.dataset.prism = attr;
+      document.head.replaceChild(newlink, oldlink);
+    }
+  </script>
+  
+    
+  
+  <script>
+    // control reverse button
+    var reverseDarkList = {
+      dark: 'light',
+      light: 'dark'
+    };
+    var themeColor = {
+      dark: '#1c1c1e',
+      light: '#fff'
+    }
+    // get the data of css prefers-color-scheme
+    var getCssMediaQuery = function() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    // reverse current darkmode setting function
+    var reverseDarkModeSetting = function() {
+      var setting = localStorage.getItem('user-color-scheme');
+      if(reverseDarkList[setting]) {
+        setting = reverseDarkList[setting];
+      } else if(setting === null) {
+        setting = reverseDarkList[getCssMediaQuery()];
+      } else {
+        return;
+      }
+      localStorage.setItem('user-color-scheme', setting);
+      return setting;
+    };
+    // apply current darkmode setting
+  </script>
+  
+    <script>
+      var setDarkmode = function(mode) {
+      var setting = mode || localStorage.getItem('user-color-scheme');
+      if(setting === getCssMediaQuery()) {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+      } else if(reverseDarkList[setting]) {
+        document.documentElement.setAttribute('data-user-color-scheme', setting);
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+      } else {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+        document.getElementById('theme-color').dataset.mode = getCssMediaQuery();
+      }
+    };
+    setDarkmode();
+    </script>
+  
+  
+  
+    <link rel="preload" href="/doc/js/lib/lightbox/baguetteBox.min.js" as="script">
+    <link rel="preload" href="/doc/js/lib/lightbox/baguetteBox.min.css" as="style" >
+  
+  
+    <link rel="preload" href="/doc/js/lib/lozad.min.js" as="script">
+  
+  
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body>
+    <div class="wrapper">
+       
+      <nav class="navbar">
+  <div class="navbar-logo">
+    <a class="navbar-logo-main" href="/doc/doc/">
+      
+        <img 
+          class="navbar-logo-img"
+          width="32"
+          height="32"
+          src="https://q1.qlogo.cn/g?b=qq&nk=3317229064&s=5" 
+          alt="blog logo">
+      
+      <span class="navbar-logo-dsc">江阿博客</span>
+      </a>
+  </div>
+  <div class="navbar-menu">
+    
+      <a 
+        href="/doc/" 
+        class="navbar-menu-item">
+        
+          首页
+        
+      </a>
+    
+      <a 
+        href="/doc/archives" 
+        class="navbar-menu-item">
+        
+          归档
+        
+      </a>
+    
+      <a 
+        href="/doc/tags" 
+        class="navbar-menu-item">
+        
+          标签
+        
+      </a>
+    
+      <a 
+        href="/doc/categories" 
+        class="navbar-menu-item">
+        
+          分类
+        
+      </a>
+    
+      <a 
+        href="/doc/about" 
+        class="navbar-menu-item">
+        
+          关于
+        
+      </a>
+    
+      <a 
+        href="/doc/links" 
+        class="navbar-menu-item">
+        
+          友链
+        
+      </a>
+    
+      <a 
+        href="https://zhangjiangh03.github.io" 
+        class="navbar-menu-item">
+        
+          主站
+        
+      </a>
+    
+    <button 
+      class="navbar-menu-item darknavbar navbar-menu-btn" 
+      aria-label="Toggle dark mode"
+      id="dark">
+      <i class="iconfont icon-weather"></i>
+    </button>
+    <button 
+      class="navbar-menu-item searchnavbar navbar-menu-btn" 
+      aria-label="Toggle search"
+      id="search">
+      <!-- <i 
+        class="iconfont icon-search" 
+        style="font-size: 1.2rem; font-weight: 400;">
+      </i> -->
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+        class="iconify iconify--ion" width="28" height="28" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512">
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M256 80a176 176 0 1 0 176 176A176 176 0 0 0 256 80Z"></path>
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M232 160a72 72 0 1 0 72 72a72 72 0 0 0-72-72Z"></path>
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="28"
+          d="M283.64 283.64L336 336"></path>
+      </svg>
+    </button>
+  </div>
+</nav> 
+      
+      <div 
+        id="local-search" 
+        style="display: none">
+        <input
+          class="navbar-menu-item"
+          id="search-input"
+          placeholder="请输入搜索内容..." />
+        <div id="search-content"></div>
+      </div>
+      
+      <div class="section-wrap">
+        <div class="container">
+          <div class="columns">
+            <aside class="left-column">
+              
+              <div class="card card-author">
+                
+  <img 
+    src="https://q1.qlogo.cn/g?b=qq&nk=3317229064&s=5" 
+    class="author-img"
+    width="88"
+    height="88"
+    alt="author avatar">
+
+<p class="author-name">zhangjiangh03</p>
+<p class="author-description">Hi 我是zhangjiangh03</p>
+<div class="author-message">
+  <a 
+    class="author-posts-count" 
+    href="/doc/archives">
+    <span>3</span>
+    <span>文章</span>
+  </a>
+  <a 
+    class="author-categories-count" 
+    href="/doc/categories">
+    <span>2</span>
+    <span>分类</span>
+  </a>
+  <a 
+    class="author-tags-count" 
+    href="/doc/tags">
+    <span>2</span>
+    <span>标签</span>
+  </a>
+</div>
+
+              </div>
+               <div class="sticky-tablet">
+  
+  
+    <article class="display-when-two-columns spacer">
+      <div class="card card-content toc-card">
+        <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>目录
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-%E8%AF%AD%E8%A8%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">C 语言数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">基本数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B4%E5%9E%8B"><span class="toc-number">1.1.1.</span> <span class="toc-text">整型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E5%9E%8B"><span class="toc-number">1.1.2.</span> <span class="toc-text">浮点型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E5%9E%8B"><span class="toc-number">1.1.3.</span> <span class="toc-text">字符型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E5%9E%8B"><span class="toc-number">1.1.4.</span> <span class="toc-text">布尔型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.2.</span> <span class="toc-text">复杂数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.2.1.</span> <span class="toc-text">类型转换</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#int-%E8%BD%AC-short"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">int 转 short</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F"><span class="toc-number">2.</span> <span class="toc-text">变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F"><span class="toc-number">3.</span> <span class="toc-text">常量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E9%9D%A2%E9%87%8F"><span class="toc-number">3.1.</span> <span class="toc-text">字面量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%A6%E5%8F%B7%E5%B8%B8%E9%87%8F"><span class="toc-number">3.2.</span> <span class="toc-text">符号常量</span></a></li></ol></li></ol>
+      </div>
+    </article>
+  
+  
+  <article class="card card-content categories-widget">
+    <div class="categories-card">
+  <div class="categories-header">
+    <i 
+      class="iconfont icon-fenlei" 
+      style="padding-right: 2px;">
+    </i>分类
+  </div>
+  <div class="categories-list">
+    
+      <a href="/doc/categories/Python/">
+        <div class="categories-list-item">
+          Python
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/doc/categories/C/">
+        <div class="categories-list-item">
+          C
+          <span class="categories-list-item-badge">2</span>
+        </div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  <article class="card card-content tags-widget">
+    <div class="tags-card">
+  <div class="tags-header">
+    <i 
+      class="iconfont icon-biaoqian" 
+      style="padding-right: 2px;">
+    </i>热门标签
+  </div>
+  <div class="tags-list">
+    
+      <a 
+        href="/doc/tags/Python/" 
+        title="Python">
+        <div class="tags-list-item">Python</div>
+      </a>
+    
+      <a 
+        href="/doc/tags/C/" 
+        title="C">
+        <div class="tags-list-item">C</div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+            <main class="main-column">
+              
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      【C】数据类型、变量和常量
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2023-05-27T16:00:00.000Z">
+      <i 
+        class="iconfont icon-calendar" 
+        style="margin-right: 2px;">
+      </i>
+      <span>2023-05-28</span>
+    </time>
+    
+      <span class="dot"></span>
+      
+        <a 
+          href="/doc/categories/C/" 
+          class="post-meta-link">
+          C
+        </a>
+      
+    
+    
+      <span class="dot"></span>
+      <span>1.9k 字</span>
+    
+  </div>
+  
+    <div 
+      class="post-meta post-show-meta" 
+      style="margin-top: -10px;">
+      <div style="display: flex; align-items: center;">
+        <i 
+          class="iconfont icon-biaoqian" 
+          style="margin-right: 2px; font-size: 1.15rem;">
+        </i>
+        
+          
+          <a 
+            href="/doc/tags/C/" 
+            class="post-meta-link">
+            C
+          </a>
+        
+      </div>
+    </div>
+  
+  </header>
+  <div 
+    id="section" 
+    class="post-content">
+    <p> <a href="/doc//2023/05/28/C/%E3%80%90%E7%9B%AE%E5%BD%95%E3%80%91C%E8%AF%AD%E8%A8%80/">【目录】C语言</a></p>
+<h2 id="C-语言数据类型"><a href="#C-语言数据类型" class="headerlink" title="C 语言数据类型"></a>C 语言数据类型</h2><p>C 语言的数据类型有基本数据类型和复杂数据类型两种。</p>
+<h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><p>基本数据类型是计算机编程语言中预定义的简单数据类型。C 语言的基本数据类型包括整型、浮点型、字符型和布尔型等。</p>
+<h4 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h4><p>整型是指没有小数部分的数字。整型可以有不同的长度和符号。</p>
+<table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">存储大小</th>
+<th align="left">取值范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">int</td>
+<td align="center">2 或 4 字节</td>
+<td align="left">-32,768 到 32,767 或 -2,147,483,648 到 2,147,483,647</td>
+</tr>
+<tr>
+<td align="center">unsigned int</td>
+<td align="center">2 或 4 字节</td>
+<td align="left">0 到 65,535 或 0 到 4,294,967,295</td>
+</tr>
+<tr>
+<td align="center">short</td>
+<td align="center">2 字节</td>
+<td align="left">-32,768 到 32,767</td>
+</tr>
+<tr>
+<td align="center">unsigned short</td>
+<td align="center">2 字节</td>
+<td align="left">0 到 65,535</td>
+</tr>
+<tr>
+<td align="center">long</td>
+<td align="center">4 字节</td>
+<td align="left">-2,147,483,648 到 2,147,483,647</td>
+</tr>
+<tr>
+<td align="center">unsigned long</td>
+<td align="center">4 字节</td>
+<td align="left">0 到 4,294,967,295</td>
+</tr>
+</tbody></table>
+<h4 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h4><p>浮点型是指带有小数部分的数字。浮点型同样可以有不同的长度和精度。</p>
+<table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">存储大小</th>
+<th align="left">取值范围</th>
+<th align="center">精度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">float</td>
+<td align="center">4 字节</td>
+<td align="left">1.2E-38 到 3.4E+38</td>
+<td align="center">6 位小数</td>
+</tr>
+<tr>
+<td align="center">double</td>
+<td align="center">8 字节</td>
+<td align="left">2.3E-308 到 1.7E+308	15 位小数</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">long double</td>
+<td align="center">10 或 12 或 16 字节</td>
+<td align="left">3.4E-4932 到 1.1E+4932	19 位小数</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h4 id="字符型"><a href="#字符型" class="headerlink" title="字符型"></a>字符型</h4><p>字符型数据类型用于存储单个字符。单引号括起来的字符就是字符型字面量。</p>
+<table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">存储大小</th>
+<th align="left">取值范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">char</td>
+<td align="center">1 字节</td>
+<td align="left">-128 到 127 或 0 到 255</td>
+</tr>
+<tr>
+<td align="center">signed char</td>
+<td align="center">1 字节</td>
+<td align="left">-128 到 127</td>
+</tr>
+<tr>
+<td align="center">unsigned char</td>
+<td align="center">1 字节</td>
+<td align="left">0 到 255</td>
+</tr>
+</tbody></table>
+<h4 id="布尔型"><a href="#布尔型" class="headerlink" title="布尔型"></a>布尔型</h4><p>布尔型数据类型用于存储逻辑值 <code>true</code> 或 <code>false</code> 。用来表示真、假两个值，其大小为一个字节。<br>一般情况下，<code>true</code> 的值为 <code>1</code>，<code>false</code> 的值为 <code>0</code> 。C语言中布尔型数据类型使用关键字 <code>_Bool</code> 或 <code>bool</code> 定义。</p>
+<pre class="highlight"><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdbool.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">bool</span> flag = <span class="literal">true</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;flag = %d\n&quot;</span>，flag);</span><br><span class="line">    </span><br><span class="line">    flag = <span class="literal">false</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;flag = %d\n&quot;</span>，flag);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre>
+
+<p>输出结果为：</p>
+<pre class="highlight"><span class="line">flag = 1</span><br><span class="line">flag = 0</span><br></pre>
+
+<p>C 语言还允许使用 <code>typedef</code> 来自定义数据类型，例如 <code>typedef int myInt</code> 就将 <code>myInt</code> 定义为 <code>int</code> 类型的别名。</p>
+<h3 id="复杂数据类型"><a href="#复杂数据类型" class="headerlink" title="复杂数据类型"></a>复杂数据类型</h3><p>C 语言的复杂数据类型包括数组、结构体、共用体和枚举等几种，这里只是简单提到，后面会有较详细的笔记。</p>
+<ul>
+<li>数组：一组相同类型的变量，在内存中依次排列，使用下标访问数组中的单个元素。</li>
+<li>结构体：一组不同类型的变量，可以自定义组合在一起，每个变量都有自己的名称和数据类型，可以通过结构体变量名和点号来访问其中的某个变量。</li>
+<li>共用体：特殊的结构体，所有的成员变量共享一个地址空间。</li>
+<li>枚举：一种可以定义自己的符号常量的类型。枚举类型中的每个符号常量都有一个对应的整数值。</li>
+</ul>
+<h4 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h4><h5 id="int-转-short"><a href="#int-转-short" class="headerlink" title="int 转 short"></a>int 转 short</h5><p>在C语言中，<code>int</code> 和 <code>short</code> 都是整型数据类型，但它们的长度不同。</p>
+<ul>
+<li><code>int</code> 通常占用4个字节（32位），而 <code>short</code> 通常占用2个字节（16位）。</li>
+</ul>
+<p>如果原来的 <code>int</code> 变量的值超过了 <code>short</code> 类型的取值范围，那么在进行类型转换时，这些超出范围的高位将被丢弃，只保留低位的数值。可能导致程序出现错误或数据的精度降低。同时，由于 <code>short</code> 类型的范围较小，可能会导致一些算术运算的结果溢出或不正确。</p>
+<pre class="highlight"><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> x = <span class="number">65535</span>; <span class="comment">//设置一个值为65535的int类型变量x</span></span><br><span class="line">    <span class="type">short</span> y = x; <span class="comment">//将x从int类型转换为short类型并赋值给y</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;x : %d\n&quot;</span>，x); <span class="comment">//打印x的值</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;y : %d\n&quot;</span>，y); <span class="comment">//打印y的值</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre>
+
+<p>输出结果：</p>
+<pre class="highlight"><span class="line">x : 65535</span><br><span class="line">y : -1</span><br></pre>
+
+<p><code>short</code> 类型只有16位的情况下，数值范围最大只能到 <code>32767</code> 。<code>x</code> 的值超过了 <code>short</code> 类型的取值范围，因此在进行类型转换时，高位被丢弃并截断，保留了低位，导致<code>y</code>的值变成了 <code>-1</code> 。</p>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>变量是一种内存管理机制，用于存储和操作程序中的数据。它们可以拥有各种不同的数据类型，包括整数、浮点数、字符和布尔值等。<br>在C语言中，变量的声明必须以数据类型开始，并使用一个唯一的标识符来引用它们。<br>关于C语言的标识符，是指程序中用来命名变量、函数、宏等程序实体的名称，规则如下：</p>
+<ol>
+<li>标识符由字母、数字和下划线组成，不能以数字开头。</li>
+<li>标识符的长度没有限制，但只有前31个字符才会被编译器识别，超过部分将被忽略。</li>
+<li>C语言是区分大小写的，因此相同的单词，但大小写不同，被视为不同的标识符。</li>
+<li>关键字不能用作标识符，例如 <code>if</code> 、 <code>while</code> 、 <code>int</code> 等。</li>
+<li>标识符不能包含空格、运算符或其他特殊字符，只能由ASCII码中的可打印字符组成。</li>
+</ol>
+<p>一个简单变量的定义规则如下：</p>
+<pre class="highlight"><span class="line">变量数据类型 变量名称;</span><br></pre>
+
+<p>这告诉编译器给变量 <code>x</code> 分配一些内存，以便将其值存储在其中。<br>例如：</p>
+<pre class="highlight"><span class="line"><span class="type">int</span> num;</span><br></pre>
+
+<p>变量可以被初始化，也可以被赋值。</p>
+<p>初始化：</p>
+<pre class="highlight"><span class="line">变量数据类型 变量名称 = 数值;</span><br></pre>
+
+<p>赋值：</p>
+<pre class="highlight"><span class="line">变量数据类型 变量名称;</span><br><span class="line">变量名称 = 数值; </span><br></pre>
+
+<p>下面的代码是将变量 <code>x</code> 初始化为<code>10</code>：</p>
+<pre class="highlight"><span class="line"><span class="type">int</span> x = <span class="number">10</span>;</span><br></pre>
+
+<p>将其他值赋给变量 <code>x</code> ：</p>
+<pre class="highlight"><span class="line">x = <span class="number">20</span>;</span><br></pre>
+
+<p>此时<code>x</code>的值从 <code>10</code> 变为 <code>20</code> 。</p>
+<p>C 语言中的变量还有作用域的概念。作用域是指变量在程序中可见的范围。<br>在函数内部定义的变量只在该函数内部可见，称为局部变量。在函数外部定义的变量在整个程序中都可见，称为全局变量。</p>
+<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><p>常量是一种固定的值，在计算机程序中使用。它们不像变量那样可以更改，而是始终保持相同的数值。<br>在C语言中，有两种类型的常量：字面量和符号常量。</p>
+<h3 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h3><p>字面量指的是在代码中硬编码的数字、字符串或其他数据类型，也就是在程序中直接使用的常量值，它们在程序运行时被固定下来，不会发生任何变化。字面量可以是整型、浮点数、字符或字符串等类型。</p>
+<ul>
+<li>整型字面量：10、100、0xFF、-23等。</li>
+<li>浮点数字面量：3.14、1.0e-5等。</li>
+<li>字符字面量：’A’、’7’、’\n’等。</li>
+<li>字符串字面量：”hello, world”、”C语言编程”等。</li>
+</ul>
+<pre class="highlight"><span class="line"><span class="type">int</span> x = <span class="number">10</span>;      <span class="comment">// 整数常量</span></span><br><span class="line"><span class="type">float</span> pi = <span class="number">3.14</span>; <span class="comment">// 浮点数常量</span></span><br></pre>
+
+<p>上面的代码中 <code>10</code> 和 <code>3.14</code> 都是字面量，因为它们是在程序中直接使用的常量值。</p>
+<h3 id="符号常量"><a href="#符号常量" class="headerlink" title="符号常量"></a>符号常量</h3><p>符号常量是另一种常量，是通过定义来创建的。<br>符号常量由预处理器指令 <code>#define</code> 创建，习惯上通常用大写字母命名。</p>
+<pre class="highlight"><span class="line"><span class="meta">#<span class="keyword">define</span> MAX 100</span></span><br></pre>
+
+<p>上面的代码中 <code>MAX</code> 表示一个值为 <code>100</code> 的整数常量。可使用 <code>MAX</code> 代替数字 <code>100</code> ，在程序执行过程中 <code>MAX</code> 会被替换成 <code>100</code> 。</p>
+<pre class="highlight"><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAX 100</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MAX_NUM = <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, MAX); <span class="comment">//相当于 printf(&quot;%d&quot;, 100); </span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre>
+
+<p><code>const</code> 关键字用于定义常量，表示该变量的值不能被修改。它可以用来修饰普通变量、函数参数和函数返回值等。</p>
+
+  </div>
+  <div>
+    
+      <div 
+        class="post-note note-warning copyright" 
+        style="margin-top: 42px">
+        <p>
+          <span style="font-weight: bold;">作者：</span><a 
+            target="_blank" 
+            rel="nofollow noopener noreferrer" 
+            href="/doc/about">
+            zhangjiangh03
+          </a>
+        </p>
+        <p>
+          <span style="font-weight: bold;">文章链接：</span><a 
+            target="_blank" 
+            rel="nofollow noopener noreferrer" 
+            href="https://zhangjiangh03.github.io/doc/2023/05/28/C/%E3%80%90C%E3%80%91%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E3%80%81%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F/">
+            https://zhangjiangh03.github.io/doc/2023/05/28/C/%E3%80%90C%E3%80%91%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E3%80%81%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F/
+          </a>
+        </p>
+        <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
+      </div>
+    
+  </div>
+</article>
+<div class="nav">
+  
+  
+    <div class="nav-item-next">
+      <a 
+        href="/doc/2023/05/28/C/%E3%80%90%E7%9B%AE%E5%BD%95%E3%80%91C%E8%AF%AD%E8%A8%80/" 
+        class="nav-link">
+        <div>
+          <div class="nav-label">下一篇</div>
+          
+            <div class="nav-title">【目录】C语言 </div>
+          
+        </div>
+        <i class="iconfont icon-right nav-next-icon"></i>
+      </a>
+    </div>
+  
+</div>
+
+<div 
+  class="card card-content toc-card" 
+  id="mobiletoc">
+  <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>目录
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-%E8%AF%AD%E8%A8%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">C 语言数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">基本数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B4%E5%9E%8B"><span class="toc-number">1.1.1.</span> <span class="toc-text">整型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E5%9E%8B"><span class="toc-number">1.1.2.</span> <span class="toc-text">浮点型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E5%9E%8B"><span class="toc-number">1.1.3.</span> <span class="toc-text">字符型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E5%9E%8B"><span class="toc-number">1.1.4.</span> <span class="toc-text">布尔型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.2.</span> <span class="toc-text">复杂数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.2.1.</span> <span class="toc-text">类型转换</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#int-%E8%BD%AC-short"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">int 转 short</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F"><span class="toc-number">2.</span> <span class="toc-text">变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F"><span class="toc-number">3.</span> <span class="toc-text">常量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E9%9D%A2%E9%87%8F"><span class="toc-number">3.1.</span> <span class="toc-text">字面量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%A6%E5%8F%B7%E5%B8%B8%E9%87%8F"><span class="toc-number">3.2.</span> <span class="toc-text">符号常量</span></a></li></ol></li></ol>
+</div>
+            </main>
+            <aside class="right-column">
+              <div class="sticky-widescreen">
+  
+  
+    <article class="card card-content toc-card">
+      <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>目录
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-%E8%AF%AD%E8%A8%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">C 语言数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">基本数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B4%E5%9E%8B"><span class="toc-number">1.1.1.</span> <span class="toc-text">整型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E5%9E%8B"><span class="toc-number">1.1.2.</span> <span class="toc-text">浮点型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E5%9E%8B"><span class="toc-number">1.1.3.</span> <span class="toc-text">字符型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E5%9E%8B"><span class="toc-number">1.1.4.</span> <span class="toc-text">布尔型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.2.</span> <span class="toc-text">复杂数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.2.1.</span> <span class="toc-text">类型转换</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#int-%E8%BD%AC-short"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">int 转 short</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F"><span class="toc-number">2.</span> <span class="toc-text">变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F"><span class="toc-number">3.</span> <span class="toc-text">常量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E9%9D%A2%E9%87%8F"><span class="toc-number">3.1.</span> <span class="toc-text">字面量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%A6%E5%8F%B7%E5%B8%B8%E9%87%8F"><span class="toc-number">3.2.</span> <span class="toc-text">符号常量</span></a></li></ol></li></ol>
+    </article>
+  
+  
+  <article class="card card-content">
+    <div class="recent-posts-card">
+  <div class="recent-posts-header">
+    <i 
+      class="iconfont icon-wenzhang_huaban" 
+      style="padding-right: 2px;">
+    </i>最近文章
+  </div>
+  <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2023-05-28</div>
+        <a href="/doc/2023/05/28/C/%E3%80%90C%E3%80%91%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E3%80%81%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F/"><div class="recent-posts-item-content">【C】数据类型、变量和常量</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2023-05-28</div>
+        <a href="/doc/2023/05/28/C/%E3%80%90%E7%9B%AE%E5%BD%95%E3%80%91C%E8%AF%AD%E8%A8%80/"><div class="recent-posts-item-content">【目录】C语言</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2023-05-27</div>
+        <a href="/doc/2023/05/27/Python/%E3%80%90%E7%9B%AE%E5%BD%95%E3%80%91Python/"><div class="recent-posts-item-content">【目录】Python</div></a>
+      </div>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-dsc">
+        <span>
+          Copyright ©
+          
+            2023
+          
+          
+        </span>
+        &nbsp;
+        <a 
+          href="/doc/" 
+          class="footer-link">
+          江阿博客
+        </a>
+      </div>
+    </div>
+
+    
+      <div class="footer-dsc">
+        
+          Powered by
+          <a 
+            href="https://hexo.io/" 
+            class="footer-link" 
+            target="_blank" 
+            rel="nofollow noopener noreferrer">
+            &nbsp;Hexo
+          </a>
+        
+        
+          <span>&nbsp;|&nbsp;</span>
+        
+        
+          Theme -
+          <a 
+            href="https://github.com/theme-kaze" 
+            class="footer-link" 
+            target="_blank"
+            rel="nofollow noopener noreferrer">
+            &nbsp;Kaze
+          </a>
+        
+      </div>
+    
+    
+    
+    
+      <div class="footer-dsc">
+        
+          本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        
+        
+          <span>&nbsp;|&nbsp;</span>
+        
+        
+          本站总访客数<span id="busuanzi_value_site_uv"></span>次
+        
+      </div>
+      
+    
+</footer>
+ 
+    
+  <a 
+    role="button" 
+    id="scrollbutton" 
+    class="basebutton" 
+    aria-label="回到顶部">
+    <i class="iconfont icon-arrowleft button-icon"></i>
+  </a>
+
+<a 
+  role="button" 
+  id="menubutton"
+  aria-label="menu button"
+  class="basebutton">
+  <i class="iconfont icon-menu button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="popbutton" 
+  class="basebutton" 
+  aria-label="控制中心">
+  <i class="iconfont icon-expand button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="darkbutton" 
+  class="basebutton darkwidget" 
+  aria-label="夜色模式">
+  <i class="iconfont icon-weather button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="searchbutton" 
+  class="basebutton searchwidget" 
+  aria-label="搜索">
+  <i class="iconfont icon-search button-icon"></i>
+</a> 
+     
+     
+     
+      <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img')
+    var i
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a')
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'))
+      wrapper.setAttribute('aria-label', 'illustration')
+      wrapper.style.cssText =
+        'width: 100%; display: flex; justify-content: center;'
+      if (img[i].alt) wrapper.dataset.caption = img[i].alt
+      wrapper.dataset.nolink = true
+      img[i].before(wrapper)
+      wrapper.append(img[i])
+      var divWrap = document.createElement('div')
+      divWrap.classList.add('gallery')
+      wrapper.before(divWrap)
+      divWrap.append(wrapper)
+    }
+    baguetteBox.run('.gallery')
+  }
+</script>
+<script>
+  loadScript(
+    "/doc/js/lib/lightbox/baguetteBox.min.js",
+    addImgLayout
+  )
+</script>
+ 
+     
+     
+    <script src="/doc/js/main.js"></script> 
+    
+      <script> 
+        loadScript('/doc/js/lib/busuanzi.min.js') 
+      </script>
+     
+    
+      <script>
+        var addLazyload = function () {
+          var observer = lozad('.lozad', {
+            load: function (el) {
+              el.srcset = el.getAttribute('data-src')
+            },
+            loaded: function (el) {
+              el.classList.add('loaded')
+            },
+          })
+          observer.observe()
+        }
+      </script>
+      <script>
+        loadScript('/doc/js/lib/lozad.min.js', addLazyload)
+      </script>
+    
+    <script src="//instant.page/5.1.0" type="module"
+      integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+    
+    
+      <script>
+        setTimeout(() => {localSearch("search.json")}, 0)
+      </script>
+    
+  </body>
+</html>
